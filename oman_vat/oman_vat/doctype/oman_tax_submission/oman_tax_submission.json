@@ -1,0 +1,171 @@
+{
+  "doctype": "DocType",
+  "name": "Oman Tax Submission",
+  "module": "Oman VAT",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "source_type",
+      "fieldtype": "Link",
+      "label": "Source Type",
+      "options": "DocType",
+      "reqd": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "source_name",
+      "fieldtype": "Dynamic Link",
+      "label": "Source",
+      "options": "source_type",
+      "reqd": 1,
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "kind",
+      "fieldtype": "Select",
+      "label": "Submission Type",
+      "options": "VAT Return\nFawtara Invoice",
+      "reqd": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "environment",
+      "fieldtype": "Select",
+      "label": "Environment",
+      "options": "Sandbox\nProduction",
+      "reqd": 1,
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "label": "Provider Adapter",
+      "reqd": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "endpoint_url",
+      "fieldtype": "Data",
+      "label": "Frozen Provider Endpoint URL",
+      "read_only": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Queued\nSending\nPending\nAccepted\nRejected\nUnknown",
+      "reqd": 1,
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "label": "Idempotency Key",
+      "unique": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "payload_hash",
+      "fieldtype": "Data",
+      "label": "Payload SHA-256",
+      "read_only": 1
+    },
+    {
+      "fieldname": "payload",
+      "fieldtype": "Long Text",
+      "label": "Frozen Provider Payload",
+      "read_only": 1
+    },
+    {
+      "fieldname": "attempt_count",
+      "fieldtype": "Int",
+      "label": "Transmission Attempts",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_attempt_at",
+      "fieldtype": "Datetime",
+      "label": "Last Attempt",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_checked_at",
+      "fieldtype": "Datetime",
+      "label": "Last Status Check",
+      "read_only": 1
+    },
+    {
+      "fieldname": "provider_reference",
+      "fieldtype": "Data",
+      "label": "Provider Reference",
+      "read_only": 1
+    },
+    {
+      "fieldname": "authority_reference",
+      "fieldtype": "Data",
+      "label": "Tax Authority Acceptance Reference",
+      "read_only": 1
+    },
+    {
+      "fieldname": "receipt_reference",
+      "fieldtype": "Small Text",
+      "label": "Receipt Reference",
+      "read_only": 1
+    },
+    {
+      "fieldname": "error_code",
+      "fieldtype": "Small Text",
+      "label": "Error Code",
+      "read_only": 1
+    }
+  ],
+  "field_order": [
+    "company",
+    "source_type",
+    "source_name",
+    "kind",
+    "environment",
+    "provider",
+    "endpoint_url",
+    "status",
+    "idempotency_key",
+    "payload_hash",
+    "payload",
+    "attempt_count",
+    "last_attempt_at",
+    "last_checked_at",
+    "provider_reference",
+    "authority_reference",
+    "receipt_reference",
+    "error_code"
+  ],
+  "permissions": [
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "report": 1
+    }
+  ],
+  "track_changes": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "prompt",
+  "allow_rename": 0
+}

@@ -1,0 +1,16 @@
+{
+  "doctype": "Report",
+  "name": "Oman VAT Summary",
+  "report_name": "Oman VAT Summary",
+  "module": "Oman VAT",
+  "ref_doctype": "Oman VAT Return",
+  "report_type": "Script Report",
+  "is_standard": "Yes",
+  "disabled": 0,
+  "roles": [
+    {
+      "role": "Accounts Manager"
+    }
+  ],
+  "add_total_row": 0
+}

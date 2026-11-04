@@ -1,0 +1,62 @@
+{
+  "doctype": "DocType",
+  "name": "Oman VAT Box",
+  "module": "Oman VAT",
+  "engine": "InnoDB",
+  "field_order": [
+    "box",
+    "description",
+    "base",
+    "output",
+    "input_vat"
+  ],
+  "fields": [
+    {
+      "fieldname": "box",
+      "fieldtype": "Data",
+      "label": "Box",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "base",
+      "fieldtype": "Currency",
+      "label": "Taxable Value",
+      "read_only": 1,
+      "in_list_view": 1,
+      "options": "Company:company:default_currency",
+      "precision": "3"
+    },
+    {
+      "fieldname": "output",
+      "fieldtype": "Currency",
+      "label": "Output VAT",
+      "read_only": 1,
+      "in_list_view": 1,
+      "options": "Company:company:default_currency",
+      "precision": "3"
+    },
+    {
+      "fieldname": "input_vat",
+      "fieldtype": "Currency",
+      "label": "Input VAT",
+      "read_only": 1,
+      "in_list_view": 1,
+      "options": "Company:company:default_currency",
+      "precision": "3"
+    }
+  ],
+  "permissions": [],
+  "istable": 1,
+  "is_submittable": 0,
+  "track_changes": 0,
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
